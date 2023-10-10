@@ -1,0 +1,8 @@
+name: base
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - pyyaml== 6.0
+  - pkce==1.0.3
