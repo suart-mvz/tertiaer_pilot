@@ -18,7 +18,7 @@ logger.setLevel(logging.INFO)
 formatter = logging.Formatter("%(asctime)s : %(levelname)s : %(funcName)s : %(message)s") # adapt
 filepath = os.path.dirname(os.path.abspath(__file__))
 
-today = datetime.today()
+today = datetime.today().strftime('%Y-%m-%d')
 filepath = os.path.join(filepath, f"upload_{today}.log") # adapt
 file_handler = logging.FileHandler(filepath)
 file_handler.setLevel(logging.INFO)
