@@ -75,7 +75,9 @@ def uploadToQiagen(sampleFiles, logger):
             for file in sample:
                 if re.search("vcf", file):
                     zipArchive.write(file)
-        logger.info("done zipping {}; took {}".format(sampleName, datetime.now()-zipTime))
+        timeDelta = datetime.now() - zipTime
+        timeDelta = timeDelta.total_seconds()
+        logger.info("done zipping {}; took {}".format(sampleName, timeDelta))
         uploadTime = datetime.now()
         #upload
 
