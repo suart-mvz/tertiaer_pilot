@@ -161,7 +161,7 @@ def main():
     conf = read_config()
     internal = False
     provider = "genoox"
-    experiment = "wgs"
+    experiment = "wes"
     count = 10
     fileTypes = "vcf,bam"
     s3 = True
@@ -206,14 +206,14 @@ def main():
             sampleFiles.append(cram)
             sampleFiles.append(cramIndex)
         if "vcf" in fileTypes:
-            if not vcf:
+            if not snvVcf:
                 logger.critical("vcf file not found for sample {} but was required".format(sample))
                 break
             sampleFiles.append(snvVcf)
             sampleFiles.append(dragenCnvVcf)
             sampleFiles.append(svVcf)
         allSampleFiles.append(sampleFiles)
-    print(sampleFiles)
+    print(allSampleFiles)
     
     #uploadToS3(provider, bucket, sampleFiles)
     write_uploaded(samples, provider)
